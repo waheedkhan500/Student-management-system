@@ -5,20 +5,25 @@ import { database } from "../firebase";
 function CreateStudent() {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
+  const [isCreatingStudent, setIsCreatingStudent] = useState(false)
 
   const handleSubmit = async (e) => {
       e.preventDefault();
       // console.table([name , age])
-      try {
+    try {
+        setIsCreatingStudent(true)
         await addDoc(collection(database, "Students"), {
           name: name,
           age: Number(age)
           
         })
         setName("")
-        setAge("")
+      setAge("")
+      setIsCreatingStudent(false)
       } catch (error) {
-        console.log("Error in creating student", error)
+      console.log("Error in creating student", error)
+      setIsCreatingStudent(false)
+      
         
       }
   };
@@ -40,7 +45,7 @@ function CreateStudent() {
           value={age}
           onChange={(e) => setAge(e.target.value)}
         />
-        <button className="create-btn" type="submit">Create Student</button>
+        <button className="create-btn" type="submit">{isCreatingStudent ? "Creating...": "Create Student" }</button>
       </form>
     </div>
   );
