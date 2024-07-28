@@ -1,6 +1,6 @@
 import { collection,  getDocs } from 'firebase/firestore';
-import React from 'react'
-import { useState } from 'react'
+
+import { useEffect, useState } from 'react'
 import { database } from '../firebase';
 
 function StudentList() {
@@ -11,13 +11,19 @@ function StudentList() {
 
     const getStudents = async () => {
         const studentsSnapshot =  await getDocs(studentsCollection)
-        const studensList = studentsSnapshot.docs.map(doc => ({
+        const studentsList = studentsSnapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
         }))
-        console.log(studensList)
+        
+        console.log(studentsList);
+        setStudents(studentsList)
     }
-    getStudents()
+    useEffect(() => {
+        
+        getStudents();
+    },[])
+   
   return (
     <div>
       <h1>Student List</h1>
