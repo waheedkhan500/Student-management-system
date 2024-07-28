@@ -16,17 +16,24 @@ function StudentList() {
             ...doc.data()
         }))
         
-        console.log(studentsList);
+        // console.log(studentsList);
+        console.table(studentsList)
         setStudents(studentsList)
     }
     useEffect(() => {
-        
         getStudents();
     },[])
    
   return (
     <div>
-      <h1>Student List</h1>
+          {/* <h1>Student List</h1> */}
+          {students && students.map((student) => (
+              <div key={student.id}>
+                  <h2>{student.name }</h2>
+                  <p>{student.age }</p>
+              </div>
+          )
+          )}
     </div>
   )
 }
