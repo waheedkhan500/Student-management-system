@@ -20,7 +20,7 @@ function App() {
         }));
 
         // console.log(studentsList);
-        console.table(studentsList);
+        // console.table(studentsList);
         setStudents(studentsList);
       };
       // getStudents();
