@@ -11,12 +11,13 @@
 }
 .create-student-container{
     /* border: 1px solid red; */
-    height: 32vh;
+    height: 43vh;
     width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
     margin-top: 1rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     
@@ -58,5 +59,8 @@
     border: none;
     
 }
-
+.create-btn:hover{
+    background: rgba(103, 103, 235, 0.858);
+    cursor: pointer;
+}
 

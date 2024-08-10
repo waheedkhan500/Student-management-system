@@ -1,0 +1,17 @@
+
+.icon{
+    cursor: pointer;
+    
+    margin-right: 15px;
+    
+}
+
+.edit-icon:hover{
+    transform: scale(1.5);
+    color: green;
+
+}
+.delete-icon:hover{
+    transform: scale(1.5);
+    color: red;
+}
