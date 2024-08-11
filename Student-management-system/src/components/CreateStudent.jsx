@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { database } from "../firebase";
+import { TextField } from "@mui/material";
+// import { Height } from "@mui/icons-material";
+import Button from "@mui/material/Button";
 
 function CreateStudent({ getStudents }) {
   const [rollNo, setRollNo] = useState("");
@@ -33,34 +36,43 @@ function CreateStudent({ getStudents }) {
   return (
     <div className="create-student-container">
       <form className="form" onSubmit={handleSubmit}>
-        <input
+        <TextField
           className="input-field "
+          sx={{ margin: "10px", width:"30%" }}
           type="text"
-          placeholder="Enter Student Name Here "
+          label="Student Name "
           required
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <input
+        <TextField
           className="input-field "
+          sx={{ margin: "10px", width:"25%" }}
           type="number"
-          placeholder="Enter Roll No Here"
+          label="Roll No"
           required
           value={rollNo}
           onChange={(e) => {
             setRollNo(e.target.value);
           }}
         />
-        <input
+        <TextField
           className="input-field"
+          sx={{ margin: "10px", width:"25%" }}
           type="number"
-          placeholder="Enter Student Age Here"
+          label="Student Age"
           value={age}
           onChange={(e) => setAge(e.target.value)}
         />
-        <button className="create-btn" type="submit">
-          {isCreatingStudent ? "Creating..." : "Create Student"}
-        </button>
+
+        <Button
+          variant="contained"
+          color="success"
+          type="submit"
+          sx={{ margin: "10px", width: "6rem" }}
+        >
+          {isCreatingStudent ? "Adding..." : "Add"}
+        </Button>
       </form>
     </div>
   );

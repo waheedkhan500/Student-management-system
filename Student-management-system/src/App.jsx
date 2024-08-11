@@ -32,12 +32,22 @@ function App() {
   
   
   return (
-    <div className='root-container'>
+    <>
+      
       <h1>Student Management System</h1>
-      <CreateStudent getStudents={ getStudents} />
-      <StudentList students={ students} setStudents={setStudents}></StudentList>
-    </div>
-  )
+      <div className="root-container">
+        <div className="createStudent-container">
+          <CreateStudent getStudents={getStudents} />
+        </div>
+        <div className="studentList-container">
+          <StudentList
+            students={students}
+            setStudents={setStudents}
+          ></StudentList>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default App
